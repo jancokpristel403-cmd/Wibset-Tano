@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Wibset — Template Website</title>
+  <meta name="description" content="Template website responsif sederhana: hero, layanan, portofolio, kontak." />
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%;font-family:Inter,ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial}
+
+    :root{
+      --bg:#0f172a;
+      --card:#0b1220;
+      --muted:#94a3b8;
+      --accent:#7c3aed;
+      --glass: rgba(255,255,255,0.04);
+    }
+
+    body{background:linear-gradient(180deg,#071024 0%, #0b1220 100%);color:#e6eef8;line-height:1.6}
+    .container{max-width:1100px;margin:0 auto;padding:28px}
+    header{backdrop-filter: blur(6px);background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;padding:12px;margin-bottom:22px}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#06b6d4);display:flex;align-items:center;justify-content:center;font-weight:700;color:#051328}
+    nav ul{display:flex;gap:14px;list-style:none}
+    nav a{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:8px}
+    nav a:hover{color:#fff;background:var(--glass)}
+    .cta{background:linear-gradient(90deg,var(--accent),#06b6d4);padding:8px 14px;border-radius:10px;color:#051328;text-decoration:none;font-weight:600}
+
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:26px;align-items:center;margin:24px 0}
+    .hero .left h1{font-size:clamp(28px,4vw,44px);margin-bottom:10px}
+    .lead{color:var(--muted);margin-bottom:18px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{padding:12px 16px;border-radius:10px;text-decoration:none;font-weight:600}
+    .btn-outline{border:1px solid rgba(255,255,255,0.06);color:#fff;background:transparent}
+    .btn-youtube{background:purple;color:#fff;display:flex;align-items:center;gap:8px}
+    .btn-youtube:hover{background:#7c3aed}
+
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:14px}
+
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:26px 0}
+    .service{padding:18px;border-radius:12px;background:var(--card)}
+    .service h3{margin-bottom:8px}
+    .service p{color:var(--muted);font-size:14px}
+
+    .portfolio{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0}
+    .port-item{border-radius:10px;overflow:hidden;background:#07142a;border:1px solid rgba(255,255,255,0.03);min-height:120px;display:flex;align-items:flex-end;padding:12px}
+    .pill{background:rgba(255,255,255,0.06);padding:6px 8px;border-radius:999px;font-size:12px}
+
+    /* === Tambahan untuk gambar portofolio === */
+    .portfolio-gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:14px;
+      margin-top:22px;
+    }
+    .portfolio-gallery a{
+      display:block;
+      border-radius:12px;
+      overflow:hidden;
+      position:relative;
+      transition:transform .3s ease, box-shadow .3s ease;
+    }
+    .portfolio-gallery a:hover{
+      transform:scale(1.03);
+      box-shadow:0 6px 18px rgba(0,0,0,0.4);
+    }
+    .portfolio-gallery img{
+      width:100%;
+      height:150px;
+      object-fit:cover;
+      display:block;
+    }
+    .portfolio-gallery span{
+      position:absolute;
+      bottom:8px;
+      left:8px;
+      background:rgba(0,0,0,0.6);
+      color:#fff;
+      font-size:13px;
+      padding:4px 8px;
+      border-radius:6px;
+    }
+
+    form{display:grid;gap:12px}
+    input,textarea,button{padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:#e6eef8}
+    textarea{min-height:120px;resize:vertical}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    footer{margin-top:36px;color:var(--muted);font-size:14px;padding:18px;text-align:center}
+
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr}
+      .grid,.portfolio{grid-template-columns:repeat(2,1fr)}
+      .split{grid-template-columns:1fr}
+    }
+    @media (max-width:560px){
+      nav ul{display:none}
+      .grid,.portfolio{grid-template-columns:1fr}
+      .container{padding:16px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="nav">
+        <div class="brand">
+          <div class="logo">XH</div>
+          <div>
+            <div style="font-weight:700">Welcome To Wibset Tano.XH</div>
+            <div style="font-size:12px;color:var(--muted)">Scrool Wibset!!!</div>
+          </div>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="#">Beranda</a></li>
+            <li><a href="#services">Layanan</a></li>
+            <li><a href="#portfolio">Portofolio</a></li>
+            <li><a href="#contact">Kontak</a></li>
+          </ul>
+        </nav>
+        <a class="cta" href="#contact">Hubungi</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="left">
+          <h1>What Do You Need In Wibset Tano.XH?</h1>
+          <p class="lead">
+          This Widget is still in beta, so please contact the developer if you have any feedback.</p>
+          <div class="actions">
+            <a class="btn" href="#services">View Our Services Tano.XH!!!!</a>
+            <a class="btn btn-outline" href="#portfolio">Contoh Portofolio</a>
+            <a class="btn btn-youtube" href="https://youtube.com/@unknown15-no?si=5wNdpnpRdJ34-ENy" target="_blank">Youtube Devoloper</a>
+          </div>
+        </div>
+
+        <aside class="card">
+          <h3>Ringkasan</h3>
+          <p style="color:var(--muted)">- Responsive layout<br>- CSS murni + JS sederhana<br>- Mudah disesuaikan</p>
+        </aside>
+      </section>
+
+      <section id="services">
+        <h2 style="margin-bottom:12px">Layanan Kami</h2>
+        <div class="grid">
+          <div class="service card"><h3>SSelling Game Guardian Script Tools</h3><p>Examples such as online login or others, such as online tools and game hacks</p></div>
+          <div class="service card"><h3>Pengembangan</h3><p>Front-end responsive dan integrasi API ringan.</p></div>
+          <div class="service card"><h3>Hosting & Pemeliharaan</h3><p>Pilihan hosting cepat dengan pembaruan bulanan.</p></div>
+        </div>
+      </section>
+
+      <section id="portfolio">
+        <h2 style="margin-bottom:12px">Portofolio</h2>
+        <div class="portfolio">
+          <div class="port-item"><div><strong>TanoYT</strong><div style="color:var(--muted);font-size:13px">How to use finder version 2?</div></div></div>
+          <div class="port-item"><div><strong>Project B</strong><div style="color:var(--muted);font-size:13px">https</div></div></div>
+          <div class="port-item"><div><strong>Project C</strong><div style="color:var(--muted);font-size:13px">Blog CMS</div></div></div>
+          <div class="port-item"><div><strong>Project D</strong><div style="color:var(--muted);font-size:13px">Portfolio fotografer</div></div></div>
+          <div class="port-item"><div><strong>Project E</strong><div style="color:var(--muted);font-size:13px">Situs perusahaan</div></div></div>
+          <div class="port-item"><div><strong>Project F</strong><div style="color:var(--muted);font-size:13px">Aplikasi internal</div></div></div>
+        </div>
+
+        <!-- === Bagian tambahan: gambar portofolio dengan link === -->
+        <div class="portfolio-gallery">
+          <a href="https://youtube.com/@unknown15-no?si=5wNdpnpRdJ34-ENy" target="_blank">
+            <img src="https://i.ytimg.com/vi/aqz-KE-bpKQ/maxresdefault.jpg" alt="Project Tano.XH">
+            <span>Project Tano.XH</span>
+          </a>
+          <a href="https://example.com/project1" target="_blank">
+            <img src="https://picsum.photos/400/200?random=1" alt="Channel Telegram">
+            <span>Situs Pribadi</span>
+          </a>
+          <a href="https://example.com/project2" target="_blank">
+            <img src="https://picsum.photos/400/200?random=2" alt="Aplikasi Web">
+            <span>Aplikasi Web</span>
+          </a>
+        </div>
+      </section>
+
+      <section id="contact" style="margin-top:18px">
+        <h2>Kontak</h2>
+        <div class="card" style="margin-top:12px">
+          <form id="contactForm">
+            <div class="split">
+              <input type="text" id="name" placeholder="Nama" required />
+              <input type="email" id="email" placeholder="Email" required />
+            </div>
+            <input type="text" id="subject" placeholder="Subjek" />
+            <textarea id="message" placeholder="Pesan" required></textarea>
+            <button type="submit" class="cta">Kirim Pesan</button>
+            <div id="formMsg" style="color:var(--muted);font-size:13px;margin-top:8px"></div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>© <span id="year"></span> Creator : Tano.XH</footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const form=document.getElementById('contactForm');
+    form.addEventListener('submit',(e)=>{
+      e.preventDefault();
+      const name=document.getElementById('name').value.trim();
+      const email=document.getElementById('email').value.trim();
+      const message=document.getElementById('message').value.trim();
+      const msgEl=document.getElementById('formMsg');
+      if(!name||!email||!message){
+        msgEl.style.color='#ffbaba';
+        msgEl.textContent='Isi semua bidang yang diperlukan.';
+        return;
+      }
+      msgEl.style.color='var(--muted)';
+      msgEl.textContent=`Terima kasih, ${name}! Pesan Anda telah disiapkan untuk dikirim (Tano.XH).`;
+      setTimeout(()=>form.reset(),1200);
+    });
+  </script>
+</body>
+</html>
